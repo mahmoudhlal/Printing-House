@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="click"
+            type="com.mahmoud.printinghouse.fragment.shields.ShieldsClick" />
+
+        <variable
+            name="address"
+            type="String" />
+
+    </data>
+
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.gifts.GiftsFragment">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_with_back"/>
+
+
+
+        <ScrollView
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_above="@+id/btnSend"
+            android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_shield"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginEnd="3dp"
+            app:cardElevation="8dp"
+            android:layout_marginTop="5dp"
+            >
+
+            <Spinner
+                android:id="@+id/sheildsTypeSpin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dropDownWidth="wrap_content"
+                android:spinnerMode="dropdown"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_marginStart="8dp"
+                android:id="@+id/txtShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show"
+                android:onClick="@{(view)->click.onClick(view)}"
+                android:layout_weight="3"
+                android:visibility="gone"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/shape_border"
+                android:layout_gravity="center_vertical"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/rel"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="6dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="10dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:padding="20dp"
+                    android:src="@drawable/ic_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="6dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="10dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:padding="20dp"
+                    android:src="@drawable/ic_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="6dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="10dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:padding="20dp"
+                    android:src="@drawable/ic_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="6dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="10dp"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:padding="20dp"
+                    android:src="@drawable/ic_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="@string/formula"
+            />
+        <RadioGroup
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/honoring"
+                android:layout_weight="1"
+                android:id="@+id/radioHonor"
+                />
+
+            <RadioButton
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thanks"
+                android:id="@+id/radioThanks"
+                />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/txtShield"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="@string/text"
+            android:visibility="gone"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="8dp"
+            app:cardElevation="8dp"
+            android:visibility="gone"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/text"
+                android:gravity="start"
+                android:padding="5dp"
+                android:minLines="3"
+                android:maxLines="6"
+                android:inputType="textMultiLine"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+  <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:text="@string/address"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="8dp"
+            app:cardElevation="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            >
+
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
+                android:gravity="center_vertical"
+                android:background="@null"
+                android:hint="@string/detailed_address"
+                android:padding="5dp"
+                android:lineSpacingExtra="-7dp"
+                android:layout_margin="3dp"
+                android:text="@{address}"
+                android:id="@+id/txtAddress"
+                android:onClick="@{(view)->click.onClick(view)}"
+                />-->
+
+            <fragment
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:visibility="visible"
+                android:saveEnabled="false"
+                map:cameraZoom="17"
+                map:mapType="normal"
+                map:uiMapToolbar="false"
+                map:liteMode="true"/>
+            <RelativeLayout
+                android:onClick="@{(view)->click.onClick(view)}"
+                android:elevation="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/txtAddress"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgShield"
+            android:onClick="@{(view)->click.onClick(view)}"
+            android:layout_marginTop="8dp"
+            />
+
+    </LinearLayout>
+
+        </ScrollView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:textSize="20sp"
+        android:background="@drawable/shape_btn_bg"
+        android:text="@string/send"
+        android:onClick="@{(view)->click.onClick(view)}"
+        android:id="@+id/btnSend"
+        android:textColor="@color/colorTxtBar"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>
+</layout>

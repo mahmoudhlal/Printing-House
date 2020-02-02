@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="click"
+            type="com.mahmoud.printinghouse.fragment.files.FilesClick" />
+
+        <variable
+            name="address"
+            type="String" />
+
+        <variable
+            name="fileName"
+            type="String" />
+
+    </data>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.files.FilesFragment">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_with_back"/>
+
+    <ScrollView
+        android:layout_above="@+id/btnSend"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_margin="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/attachCard"
+            android:layout_width="150dp"
+            android:layout_margin="4dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="10dp">
+
+            <ImageView
+                android:padding="35dp"
+                android:id="@+id/image"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_add_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/addFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/attachCard"
+            android:textSize="22sp"
+            android:textColor="@color/colorTxt"
+            android:text="@string/add_file"
+            android:padding="4dp"
+            android:onClick="@{(view)->click.onClick(view)}"
+            android:drawablePadding="8dp"
+            android:gravity="start|center_vertical"
+            android:drawableEnd="@drawable/ic_add_circle"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/rel"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_toStartOf="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/file_name"
+                android:text="@{fileName}"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_photo"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/delete"
+                android:padding="10dp"
+                android:onClick="@{(view)->click.onClick(view)}"
+                android:layout_marginStart="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_delete"
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/number_of_copies"
+            />
+
+        <com.michaelmuenzer.android.scrollablennumberpicker.ScrollableNumberPicker
+            android:id="@+id/number_picker_horizontal"
+            android:layout_width="wrap_content"
+            app:snp_orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/paper_size"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="3dp"
+            app:cardElevation="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="5dp"
+            >
+
+            <Spinner
+                android:id="@+id/paperSizeSpin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/paper_type"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="3dp"
+            app:cardElevation="8dp"
+
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="5dp"
+            >
+
+            <Spinner
+                android:id="@+id/paperTypeSpin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/print_type"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:visibility="gone"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="3dp"
+            app:cardElevation="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="5dp"
+            >
+
+            <Spinner
+                android:id="@+id/printTypeSpin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="@string/address"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginStart="3dp"
+            app:cardElevation="8dp"
+            >
+
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/detailed_address"
+                android:padding="4dp"
+                android:lineSpacingExtra="-7dp"
+                android:text="@{address}"
+                android:onClick="@{(view)->click.onClick(view)}"
+                android:id="@+id/txtAddress"
+                android:gravity="start|center_vertical"
+                />-->
+            <fragment
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:visibility="visible"
+                android:saveEnabled="false"
+                map:cameraZoom="17"
+                map:mapType="normal"
+                map:uiMapToolbar="false"
+                map:liteMode="true"/>
+            <RelativeLayout
+                android:onClick="@{(view)->click.onClick(view)}"
+                android:elevation="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/txtAddress"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSend"
+        android:gravity="center"
+        android:onClick="@{(view)->click.onClick(view)}"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20sp"
+        android:background="@drawable/shape_btn_bg"
+        android:text="@string/send"
+        android:textColor="@color/colorTxtBar"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>
+</layout>

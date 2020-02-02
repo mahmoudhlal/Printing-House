@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Printing House</string>
+    <string name="files">Files</string>
+    <string name="gifts">Gifts</string>
+    <string name="t_shirts">T shirts</string>
+    <string name="shields">Shields</string>
+
+    <string name="add_photo"><u>Add Photo</u></string>
+    <string name="number_of_copies">Number of copies</string>
+    <string name="photo_name">Photo Name</string>
+    <string name="address">Address</string>
+    <string name="detailed_address">Detailed address</string>
+    <string name="send">Send</string>
+
+    <string name="choose_shield">Choose Shield</string>
+    <string name="formula">Formula</string>
+    <string name="honoring">Honoring</string>
+    <string name="thanks">Thanks</string>
+    <string name="text">Text</string>
+    <string name="add_file">Add File</string>
+    <string name="file_name">File Name</string>
+    <string name="paper_size">Paper size</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="confirm">Confirm</string>
+    <string name="loading">Loading</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="choose_file">Choose File</string>
+    <string name="from_gallery">From Gallary</string>
+    <string name="take_camera">Take Photo</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="from_video">Take Video</string>
+    <string name="is_weak">is weak</string>
+    <string name="must_be_eight">It must contains 8 or more characters!</string>
+    <string name="must_contain_numbers">It must contain at least one number!</string>
+    <string name="must_contain_capital">It must contain at least one capital letters!</string>
+    <string name="must_contain_special">It must contain at least one special character!</string>
+    <string name="spaces_not_allowed">Spaces aren\'t allowed!</string>
+    <string name="is_empty">is empty!</string>
+    <string name="is_invalid">is invalid</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="paper_type">Paper type</string>
+    <string name="print_type">Print type</string>
+    <string name="welcome">Welcome</string>
+    <string name="enter">Login</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+    <string name="you_dont_have"><u>You don\'t have account Sign up</u></string>
+    <string name="you_already"><u>You already have an account Login Now</u></string>
+    <string name="you_must_give_permissions_storage">You must give permissions to access storage.</string>
+    <string name="you_must_give_permissions_location">You must give permissions to access your location.</string>
+    <string name="pleaseOpenGPS">Please Open GPS</string>
+    <string name="get_location">Select Location</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="no_detected_address">No address detected</string>
+    <string name="show">Show</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from_admin">From admin</string>
+</resources>

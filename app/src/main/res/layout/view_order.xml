@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+
+        <import type="com.mahmoud.printinghouse.Utils.DataBindingUtils"/>
+        <variable
+            name="item"
+            type="com.mahmoud.printinghouse.models.orderResponse.OrdersItem" />
+    </data>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/img"
+            bind:loadImage="@{item.filePath}"
+            />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:cardCornerRadius="22.5dp"
+                android:layout_margin="5dp"
+                android:id="@+id/sendMsg"
+                app:cardElevation="4dp"
+                android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:padding="7dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_comment"
+                />
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <TextView
+            bind:checkVisibility="@{item.type}"
+            android:id="@+id/content"
+            android:gravity="center"
+            android:text="@{item.content}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@{DataBindingUtils.setPrintingType(item.type)}"
+                android:id="@+id/printingType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                bind:checkVisibility="@{item.type}"
+                android:text="@{DataBindingUtils.setCopiesNum(item.copies)}"
+                android:id="@+id/copiesNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+             <TextView
+                 bind:checkVisibility="@{item.type}"
+                 android:id="@+id/paperSize"
+                 android:text="@{DataBindingUtils.setPaperSize(item.paperSize)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+             <TextView
+                 bind:checkVisibility="@{item.type}"
+                 android:id="@+id/paperType"
+                 android:text="@{DataBindingUtils.setPaperType(item.paperType)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+           <!-- <TextView
+                bind:checkVisibility="@{item.type}"
+                android:id="@+id/formula"
+                android:text="@{DataBindingUtils.setFormula(item.shieldType)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+           -->
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:text="@{DataBindingUtils.setAddress(item.location.address)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/txtName"
+                    android:text="@{DataBindingUtils.setUserName(item.user.name)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/txtDate"
+                    android:textSize="12sp"
+                    android:layout_centerVertical="true"
+                    android:text="@{item.createdAt}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>
