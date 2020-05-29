@@ -229,8 +229,9 @@ public class FilesFragment extends Fragment implements FilesClick , OnMapReadyCa
             if (requestCode == PICKFILE_REQUEST_CODE) {
                 assert data != null;
                 try {
-                    fileUri=Uri.parse(PathUtil.getPath(Objects.requireNonNull(getContext()), data.getData()));
-                } catch (URISyntaxException e) {
+                    if (data.getData() != null)
+                        fileUri=Uri.parse(PathUtil.getPath(Objects.requireNonNull(getContext()), data.getData()));
+                } catch (URISyntaxException | NullPointerException e) {
                     e.printStackTrace();
                 }
                 localUri=data.getData();
@@ -277,7 +278,7 @@ public class FilesFragment extends Fragment implements FilesClick , OnMapReadyCa
     private MultipartBody.Part convertFileToMultiPart(Uri uri){
         File file = new File(uri.toString());
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        return MultipartBody.Part.createFormData("file_path", file.getName(), requestFile);
+        return MultipartBody.Part.createFormData("file_path", prepareName(file.getName()), requestFile);
     }
 
     private void generateImageFromPdf(Uri pdfUri) {
@@ -302,6 +303,22 @@ public class FilesFragment extends Fragment implements FilesClick , OnMapReadyCa
         }
     }
 
+    private String prepareName(String s){
+        if (isProbablyArabic(s))
+            return "Untitled" ;
+        else
+            return s ;
+    }
+
+    private boolean isProbablyArabic(String s) {
+        for (int i = 0; i < s.length();) {
+            int c = s.codePointAt(i);
+            if (c >= 0x0600 && c <= 0x06E0)
+                return true;
+            i += Character.charCount(c);
+        }
+        return false;
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
