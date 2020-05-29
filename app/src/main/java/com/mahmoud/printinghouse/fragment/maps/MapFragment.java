@@ -52,10 +52,14 @@ import com.mahmoud.printinghouse.Utils.ParentClass;
 import com.mahmoud.printinghouse.models.location.SharedViewModel;
 
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Queue;
+import java.util.Stack;
 
 
 @SuppressLint("ValidFragment")
@@ -149,7 +153,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
     }
 
     private void buildAlertMessageNoGps() {
-        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
+        final androidx.appcompat.app.AlertDialog.Builder builder =
+                new androidx.appcompat.app.AlertDialog.Builder(getActivity());
         builder.setMessage(getString(R.string.pleaseOpenGPS))
                 .setCancelable(false)
                 .setPositiveButton(R.string.open, (dialog, id) -> {
@@ -339,7 +344,5 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         lat = latLng.latitude ;
         lng = latLng.longitude ;
     }
-
-
 
 }

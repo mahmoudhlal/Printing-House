@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -24,6 +25,8 @@ import com.mahmoud.printinghouse.Utils.SharedPrefManager;
 import com.mahmoud.printinghouse.Utils.Validator;
 import com.mahmoud.printinghouse.databinding.FragmentLoginBinding;
 import com.mahmoud.printinghouse.fragment.authPackage.OnAuthClick;
+import com.mahmoud.printinghouse.models.GeneralResponse.GeneralResponse;
+import com.mahmoud.printinghouse.models.authResponse.Data;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,6 +81,8 @@ public class LoginFragment extends Fragment implements OnAuthClick {
                     break;
             }
         });
+
+
     }
 
     private void setEditText() {
